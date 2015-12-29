@@ -11,10 +11,10 @@ public class EarthQuakeClient {
 		ArrayList<QuakeEntry> list = getQuakeInfo(source);
 		list = sort.sortByDepth((list));
 		printData(list);
-		
+
 	}
 
-	public void testSortByMagnitudeWithBubbleSort(){
+	public void testSortByMagnitudeWithBubbleSort() {
 		QuakeSort sort = new QuakeSort();
 		String source = "properties/earthQuakeDataSampleSix2.atom";
 		ArrayList<QuakeEntry> list = getQuakeInfo(source);
@@ -22,9 +22,26 @@ public class EarthQuakeClient {
 		list = sort.sortByMagnitudeWithBubbleSort((list));
 		printData(list);
 	}
+
+	public void testSortByMagnitudeWithCheck() {
+		QuakeSort sort = new QuakeSort();
+		String source = "properties/earthQuakeDataDec6sample1.atom";
+		// String source ="properties/earthQuakeDataSampleSix2.atom";
+		ArrayList<QuakeEntry> list = getQuakeInfo(source);
+		list = sort.sortByMagnitudeWithCheck(list);
+	}
+
+	public void testSortByMagnitudeWithBubbleSortWithCheck() {
+		QuakeSort sort = new QuakeSort();
+		String source = "properties/earthQuakeDataDec6sample2.atom";
+		// String source ="properties/earthQuakeDataSampleSix2.atom";
+		ArrayList<QuakeEntry> list = getQuakeInfo(source);
+		list = sort.sortByMagnitudeWithBubbleSortWithCheck(list);
+	}
+
 	public ArrayList<QuakeEntry> getQuakeInfo(String source) {
 		EarthQuakeParser parser = new EarthQuakeParser();
-		
+
 		// String source =
 		// "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
 		ArrayList<QuakeEntry> list = parser.read(source);
@@ -111,13 +128,13 @@ public class EarthQuakeClient {
 		}
 
 	}
-	
-	public void printData(ArrayList<QuakeEntry>list){
-		int index=0;
+
+	public void printData(ArrayList<QuakeEntry> list) {
+		int index = 0;
 		for (QuakeEntry qe : list) {
-			System.out.println("index"+index+qe);
+			System.out.println("index" + index + qe);
 			index++;
 		}
 	}
-	
+
 }
