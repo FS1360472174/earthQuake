@@ -39,6 +39,14 @@ public class EarthQuakeClient {
 		list = sort.sortByMagnitudeWithBubbleSortWithCheck(list);
 	}
 
+	public void testSortByMagnitudeThenDepth() {
+		DifferentSorters sort = new DifferentSorters();
+		String source = "properties/nov20quakedata.atom";
+		ArrayList<QuakeEntry> list = getQuakeInfo(source);
+		sort.sortByMagnitudeThenDepth(list);
+		printData(list, 10);
+	}
+
 	public ArrayList<QuakeEntry> getQuakeInfo(String source) {
 		EarthQuakeParser parser = new EarthQuakeParser();
 
@@ -137,4 +145,7 @@ public class EarthQuakeClient {
 		}
 	}
 
+	public void printData(ArrayList<QuakeEntry> list, int num) {
+		System.out.println(num + "value" + list.get(num));
+	}
 }

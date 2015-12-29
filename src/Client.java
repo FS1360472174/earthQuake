@@ -14,6 +14,8 @@ public class Client {
 		earthClient.testSortByMagnitudeWithCheck();
 
 		earthClient.testSortByMagnitudeWithBubbleSortWithCheck();
+
+		earthClient.testSortByMagnitudeThenDepth();
 	}
 
 }
