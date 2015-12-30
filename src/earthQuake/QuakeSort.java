@@ -13,7 +13,7 @@ public class QuakeSort {
 			listQuakeOut.add(maxQuake);
 			in.remove(maxQuake);
 			count++;
-			if (count == 70) {
+			if (count == 50) {
 				System.out.println("sortByDepth/70Pass:" + in.get(in.size() - 1).getDepth());
 			}
 		}

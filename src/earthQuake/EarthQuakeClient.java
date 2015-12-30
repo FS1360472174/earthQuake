@@ -4,10 +4,10 @@ import java.util.*;
 
 public class EarthQuakeClient {
 
-	public void testSort() {
+	public void testSortByDepth() {
 
 		QuakeSort sort = new QuakeSort();
-		String source = "properties/earthQuakeDataDec6sample1.atom";
+		String source = "properties/earthQuakeDataDec6sample2.atom";
 		ArrayList<QuakeEntry> list = getQuakeInfo(source);
 		list = sort.sortByDepth((list));
 		printData(list);
@@ -25,7 +25,7 @@ public class EarthQuakeClient {
 
 	public void testSortByMagnitudeWithCheck() {
 		QuakeSort sort = new QuakeSort();
-		String source = "properties/earthQuakeDataDec6sample1.atom";
+		String source = "properties/earthQuakeDataWeekDec6sample1.atom";
 		// String source ="properties/earthQuakeDataSampleSix2.atom";
 		ArrayList<QuakeEntry> list = getQuakeInfo(source);
 		list = sort.sortByMagnitudeWithCheck(list);
@@ -33,7 +33,7 @@ public class EarthQuakeClient {
 
 	public void testSortByMagnitudeWithBubbleSortWithCheck() {
 		QuakeSort sort = new QuakeSort();
-		String source = "properties/earthQuakeDataDec6sample2.atom";
+		String source = "properties/earthQuakeDataWeekDec6sample2.atom";
 		// String source ="properties/earthQuakeDataSampleSix2.atom";
 		ArrayList<QuakeEntry> list = getQuakeInfo(source);
 		list = sort.sortByMagnitudeWithBubbleSortWithCheck(list);
@@ -41,10 +41,27 @@ public class EarthQuakeClient {
 
 	public void testSortByMagnitudeThenDepth() {
 		DifferentSorters sort = new DifferentSorters();
-		String source = "properties/nov20quakedata.atom";
+		String source = "properties/earthQuakeDataWeekDec6sample1.atom";
 		ArrayList<QuakeEntry> list = getQuakeInfo(source);
 		sort.sortByMagnitudeThenDepth(list);
-		printData(list, 10);
+		printData(list, 600);
+		// printData(list);
+	}
+
+	public void testSortByTitleThenDepth() {
+		DifferentSorters sort = new DifferentSorters();
+		String source = "properties/earthQuakeDataWeekDec6sample1.atom";
+		ArrayList<QuakeEntry> list = getQuakeInfo(source);
+		sort.sortByTitleThenDepth(list);
+		printData(list, 500);
+	}
+
+	public void testSortByTitleLastThenMagnitude() {
+		DifferentSorters sort = new DifferentSorters();
+		String source = "properties/earthQuakeDataWeekDec6sample1.atom";
+		ArrayList<QuakeEntry> list = getQuakeInfo(source);
+		sort.sortByTitleLastThenMagnitude(list);
+		printData(list, 500);
 	}
 
 	public ArrayList<QuakeEntry> getQuakeInfo(String source) {
