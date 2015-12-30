@@ -7,7 +7,7 @@ public class Client {
 	public static void main(String[] argv) {
 
 		EarthQuakeClient earthClient = new EarthQuakeClient();
-		// earthClient.bigQuakes();
+		earthClient.bigQuakes();
 		earthClient.testSortByDepth();
 		// earthClient.testSortByMagnitudeWithBubbleSort();
 
