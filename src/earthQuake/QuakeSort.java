@@ -4,7 +4,7 @@ import java.util.*;
 
 public class QuakeSort {
 
-	public ArrayList<QuakeEntry> sortByDepth(ArrayList<QuakeEntry> in) {
+	public ArrayList<QuakeEntry> sortByLargestDepth(ArrayList<QuakeEntry> in) {
 		ArrayList<QuakeEntry> listQuakeOut = new ArrayList<QuakeEntry>();
 		// limit count
 		int count = 0;
@@ -13,8 +13,8 @@ public class QuakeSort {
 			listQuakeOut.add(maxQuake);
 			in.remove(maxQuake);
 			count++;
-			if (count == 50) {
-				System.out.println("sortByDepth/70Pass:" + in.get(in.size() - 1).getDepth());
+			if (count ==50) {
+				System.out.println("sortByDepth/70Pass:" + listQuakeOut.get(listQuakeOut.size() - 1).getDepth());
 			}
 		}
 		return listQuakeOut;
