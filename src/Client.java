@@ -8,8 +8,9 @@ public class Client {
 
 		EarthQuakeClient earthClient = new EarthQuakeClient();
 		earthClient.bigQuakes();
-		earthClient.testSortByDepth();
-		// earthClient.testSortByMagnitudeWithBubbleSort();
+		earthClient.testSortByLargestDepth();
+
+		earthClient.testSortByMagnitudeWithBubbleSort();
 
 		earthClient.testSortByMagnitudeWithCheck();
 
@@ -20,6 +21,7 @@ public class Client {
 		earthClient.testSortByTitleThenDepth();
 
 		earthClient.testSortByTitleLastThenMagnitude();
+		System.out.println("double" + (Double.compare(-0.00, 0.00)));
 	}
 
 }
