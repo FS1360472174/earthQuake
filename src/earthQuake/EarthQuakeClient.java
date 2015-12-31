@@ -4,19 +4,19 @@ import java.util.*;
 
 public class EarthQuakeClient {
 
-	public void testSortByDepth() {
+	public void testSortByLargestDepth() {
 
 		QuakeSort sort = new QuakeSort();
 		String source = "properties/earthQuakeDataDec6sample2.atom";
 		ArrayList<QuakeEntry> list = getQuakeInfo(source);
-		list = sort.sortByDepth((list));
+		list = sort.sortByLargestDepth((list));
 		printData(list);
 
 	}
 
 	public void testSortByMagnitudeWithBubbleSort() {
 		QuakeSort sort = new QuakeSort();
-		String source = "properties/earthQuakeDataSampleSix2.atom";
+		String source = "properties/earthQuakeDataWeekDec6sample2.atom";
 		ArrayList<QuakeEntry> list = getQuakeInfo(source);
 		printData(list);
 		list = sort.sortByMagnitudeWithBubbleSort((list));
@@ -25,7 +25,7 @@ public class EarthQuakeClient {
 
 	public void testSortByMagnitudeWithCheck() {
 		QuakeSort sort = new QuakeSort();
-		String source = "properties/earthQuakeDataWeekDec6sample1.atom";
+		String source = "properties/earthQuakeDataWeekDec6sample2.atom";
 		// String source ="properties/earthQuakeDataSampleSix2.atom";
 		ArrayList<QuakeEntry> list = getQuakeInfo(source);
 		list = sort.sortByMagnitudeWithCheck(list);
@@ -41,7 +41,7 @@ public class EarthQuakeClient {
 
 	public void testSortByMagnitudeThenDepth() {
 		DifferentSorters sort = new DifferentSorters();
-		String source = "properties/earthQuakeDataWeekDec6sample1.atom";
+		String source = "properties/earthQuakeDataWeekDec6sample2.atom";
 		ArrayList<QuakeEntry> list = getQuakeInfo(source);
 		sort.sortByMagnitudeThenDepth(list);
 		printData(list, 600);
@@ -164,5 +164,11 @@ public class EarthQuakeClient {
 
 	public void printData(ArrayList<QuakeEntry> list, int num) {
 		System.out.println(num + "value" + list.get(num));
+	}
+
+	public void printData(ArrayList<QuakeEntry> list, int from, int to) {
+		for (int i = from; i <= to; i++) {
+			System.out.println(i + "index" + list.get(i));
+		}
 	}
 }
