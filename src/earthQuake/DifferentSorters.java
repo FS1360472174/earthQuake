@@ -29,13 +29,15 @@ public class DifferentSorters {
 	public void sortByTitleLastThenMagnitude(ArrayList<QuakeEntry> quakes) {
 		Comparator<QuakeEntry> compartor = new Comparator<QuakeEntry>() {
 			public int compare(QuakeEntry quake1, QuakeEntry quake2) {
-				char c1 = quake1.getInfo().charAt(quake1.getInfo().length() - 1);
-				char c2 = quake2.getInfo().charAt(quake2.getInfo().length() - 1);
-				//System.out.println("title:" + quake1.getInfo() + " 1last:" + c1 );
-				if (c1 == c2) {
+				String title1 = quake1.getInfo();
+				String title2 = quake2.getInfo();
+				// last word not mean last character
+				String str1 = title1.substring(title1.lastIndexOf(" "), title1.length() - 1);
+				String str2 = title2.substring(title2.lastIndexOf(" "), title2.length() - 1);
+				if (str1.equals(str2)) {
 					return Double.compare(quake1.getMagnitude(), quake2.getMagnitude());
 				}
-				return c1 - c2;
+				return str1.compareTo(str2);
 			}
 		};
 		Collections.sort(quakes, compartor);
