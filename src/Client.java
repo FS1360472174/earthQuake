@@ -1,11 +1,16 @@
 import earthQuake.EarthQuakeClient;
+import randomText.RandomClient;
 
 public class Client {
 	/**
 	 * @param argv
 	 */
 	public static void main(String[] argv) {
+		//testEarthQuake();
+		testRandomText();
+	}
 
+	public static void testEarthQuake(){
 		EarthQuakeClient earthClient = new EarthQuakeClient();
 		earthClient.bigQuakes();
 		earthClient.testSortByLargestDepth();
@@ -21,7 +26,11 @@ public class Client {
 		earthClient.testSortByTitleThenDepth();
 
 		earthClient.testSortByTitleLastThenMagnitude();
-		System.out.println("double" + (Double.compare(-0.00, 0.00)));
 	}
-
+	
+	public static void testRandomText(){
+		RandomClient randomClient=new RandomClient();
+		randomClient.testMarkovZero();
+		randomClient.testGetFolow();
+	}
 }
