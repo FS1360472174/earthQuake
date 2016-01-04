@@ -31,3 +31,4 @@ some created by the class,some designed by myself
 	class 实现Comparator<T>接口，重写compare方法,然后使用Collections.sort(Object,compartor)方法调用
 	
 	Refer:DifferentSorter.java sortByTitleThenDepth method.
+- Exercise2---RandomText
