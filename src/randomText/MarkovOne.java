@@ -3,8 +3,6 @@ package randomText;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.tomcat.util.codec.binary.StringUtils;
-
 public class MarkovOne extends AbstractMarkov {
 
 	@Override
