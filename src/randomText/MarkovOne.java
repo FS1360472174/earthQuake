@@ -11,10 +11,18 @@ public class MarkovOne extends AbstractMarkov {
 			return "";
 		}
 		StringBuilder sb = new StringBuilder();
-		int index = 0;
+		int index = random.nextInt(text.length()-1);
+		String key = text.substring(index,index+1);
+		sb.append(key);
 		for (int i = 0; i < numChars; i++) {
-			index = random.nextInt(text.length());
-			sb.append(text.charAt(index));
+			List<String> follows = getFollows(key);
+			if (follows.size() == 0) {
+				break;
+			}
+			index = random.nextInt(follows.size());
+			String next = follows.get(index);
+			sb.append(next);
+			key = next;
 		}
 		return sb.toString();
 	}
