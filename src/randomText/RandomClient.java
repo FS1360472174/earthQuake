@@ -18,17 +18,36 @@ public class RandomClient {
 
 	public void testGetFolow() {
 		// String str = "this is a test yes this is a test.";
-		String str = readFile("properties/confucius.txt");
+		String str = readFile("properties/melville.txt");
 		MarkovOne markOne = new MarkovOne();
 		markOne.setTraining(str);
-		List<String> listStr = markOne.getFollows("t");
+		List<String> listStr = markOne.getFollows("th");
 		printListString(listStr);
+	}
+
+	public void testMarkovOne() {
+		String path = "properties/confucius.txt";
+		MarkovOne markOne = new MarkovOne();
+		runMarkov(path, markOne);
+	}
+
+	public void testMarkovFour() {
+		String path = "properties/confucius.txt";
+		MarkovFour markFour = new MarkovFour();
+		runMarkov(path, markFour);
+	}
+
+	public void testMarkModel() {
+		String path = "properties/confucius.txt";
+		MarkovModel markModel = new MarkovModel(8);
+		runMarkov(path, markModel);
 	}
 
 	public void runMarkov(String path, AbstractMarkov mark) {
 		String str = readFile(path);
 		mark.setTraining(str);
-		mark.setRandom(42);
+		mark.setRandom(365);
+		System.out.println("runMarkov");
 		for (int i = 0; i < 3; i++) {
 			String text = mark.getRandomText(500);
 			printOut(text);
