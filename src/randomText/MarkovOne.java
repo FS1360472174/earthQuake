@@ -1,6 +1,5 @@
 package randomText;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MarkovOne extends AbstractMarkov {
@@ -14,7 +13,7 @@ public class MarkovOne extends AbstractMarkov {
 		int index = random.nextInt(text.length()-1);
 		String key = text.substring(index,index+1);
 		sb.append(key);
-		for (int i = 0; i < numChars; i++) {
+		for (int i = 0; i < numChars-1; i++) {
 			List<String> follows = getFollows(key);
 			if (follows.size() == 0) {
 				break;
@@ -27,22 +26,4 @@ public class MarkovOne extends AbstractMarkov {
 		return sb.toString();
 	}
 
-	/**
-	 * get the following character of key in text
-	 * 
-	 * @param key
-	 * @return
-	 */
-	public List<String> getFollows(String key) {
-		ArrayList<String> followString = new ArrayList<String>();
-		String str = null;
-		int index = key.length();
-		for (int i = 0; i <= text.length() - index; i++) {
-			str = text.substring(i, i + index);
-			if (str.equals(key) && i < text.length() - index) {
-				followString.add(text.substring(i + index, i + index + 1));
-			}
-		}
-		return followString;
-	}
 }
