@@ -15,5 +15,4 @@ public class MarkovZero extends AbstractMarkov implements IMarkov {
 		}
 		return sb.toString();
 	}
-
 }
